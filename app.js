@@ -55,15 +55,43 @@ server.listen(port, hostname, () => {
 /*const chalk = require('chalk')
 console.log(chalk.green('Hacker Vibes'))*/
 
-const ProgressBar = require('progress')
-
+/*
 const bar = new ProgressBar(':bar', { total: 10 })
+const ProgressBar = require('progress')
 const timer = setInterval( () => {
     bar.tick()
     if (bar.complete) {
         clearInterval(timer)
     }
 }, 100)
+*/
+
+/*const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
+
+readline.question(`What's your name?`, name => {
+    console.log(`Hi there, ${name}!`)
+    readline.close()
+})*/
+
+const inquirer = require('inquirer')
+
+let questions = [
+    {
+        type: 'input',
+        name: 'name',
+        message: "What's your name?"
+    }
+]
+
+inquirer.prompt(questions).then(answers => {
+    console.log(`Hi ${answers['name']}`)
+})
+
+
+
 
 
 
