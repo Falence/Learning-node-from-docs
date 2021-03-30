@@ -90,7 +90,7 @@ inquirer.prompt(questions).then(answers => {
     console.log(`Hi ${answers['name']}`)
 })*/
 
-// creating a promise
+/*// creating a promise
 let done = true
 
 const isItDone = new Promise((resolve, reject) => {
@@ -101,7 +101,40 @@ const isItDone = new Promise((resolve, reject) => {
         const why = 'Still working on something...'
         reject(why)
     }
-})
+})*/
+
+
+// promisifying
+const fs = require('fs')
+
+const getFile = (fileName) => {
+    return new Promise((resolve, reject) => {
+        fs.readFile(fileName, (err, data) => {
+            if (err) {
+                reject(err)
+                return
+            } else {
+                resolve(data)
+            }
+        })
+    })
+}
+
+getFile('./apiFile.txt')
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
