@@ -76,7 +76,7 @@ readline.question(`What's your name?`, name => {
     readline.close()
 })*/
 
-const inquirer = require('inquirer')
+/*const inquirer = require('inquirer')
 
 let questions = [
     {
@@ -88,10 +88,20 @@ let questions = [
 
 inquirer.prompt(questions).then(answers => {
     console.log(`Hi ${answers['name']}`)
+})*/
+
+// creating a promise
+let done = true
+
+const isItDone = new Promise((resolve, reject) => {
+    if (done) {
+        const workDone = 'Here is the thing I built'
+        resolve(workDone)
+    } else {
+        const why = 'Still working on something...'
+        reject(why)
+    }
 })
-
-
-
 
 
 
