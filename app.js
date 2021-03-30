@@ -104,6 +104,7 @@ const isItDone = new Promise((resolve, reject) => {
 })*/
 
 
+/*
 // promisifying
 const fs = require('fs')
 
@@ -123,8 +124,23 @@ const getFile = (fileName) => {
 getFile('./apiFile.txt')
     .then(data => console.log(data))
     .catch(err => console.log(err))
+*/
 
+// using async/await
 
+const doSomethingAsync = () => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve('I did something'), 3000)
+    })
+}
+
+const doSomething = async () => {
+    console.log(await doSomethingAsync())
+}
+
+console.log('Before')
+doSomething()
+console.log('After')
 
 
 
